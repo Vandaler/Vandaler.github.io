@@ -6,112 +6,181 @@
     <title>Portfolio</title>
     <style>
         * {
-        box-sizing: border-box;
-    }
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #d8d8d8;
-        align-items: center;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: #ececec;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-    }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
 
-    header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-    }
+        header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 30px;
+        }
 
-    header img {
-        border-radius: 50%;
-        margin-right: 20px;
-    }
+        header img {
+            border-radius: 50%;
+            border: 4px solid #667eea;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
 
-    .header-info {
-        flex: 1;
-        text-align: center;
-    }
+        header img:hover {
+            transform: scale(1.05);
+        }
 
-    .header-info h4 {
-        font-size: 24px;
-        margin-bottom: 5px;
-        color: #24292e;
-    }
+        .header-info {
+            flex: 1;
+        }
 
-    .header-info p {
-        font-size: 16px;
-        color: #586069;
-        margin-bottom: 5px;
-    }
+        .header-info h4 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 700;
+        }
 
-    .header-info b {
-        font-weight: bold;
-        color: #24292e;
-    }
+        .header-info p {
+            font-size: 18px;
+            color: #718096;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
 
-    .header-info a {
-        text-decoration: none;
-        color: #0366d6;
-    }
+        .header-info b {
+            font-weight: 600;
+            color: #4a5568;
+        }
 
-    .header-info a:hover {
-        text-decoration: underline;
-    }
+        .header-info a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    main {
-        margin-top: 20px;
-    }
+        .header-info a:hover {
+            color: #5a67d8;
+        }
 
-    .github-repos h2 {
-        font-size: 20px;
-        margin-bottom: 10px;
-        color: #24292e;
-    }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-    #repo-table {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-    }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 15px 20px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-    #repo-table td {
-        padding: 1px -5px 10px 0px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-    }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
 
-    .repo-link {
-        display: flex;
-        padding: 15px;
-        background-color: #dbffbe;
-        color: #000000;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-    }
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
 
-    .repo-link:hover {
-        background-color: #92ffc8;
-    }
+        main {
+            margin-top: 40px;
+        }
 
-    .btn {
-        margin-top: 10px;
-        padding: 10px 15px 10px 15px;
-        border-radius: 15px;
-        background-color: #beffd4;
-    }
-    footer {
-        margin: none;
-    }
+        .github-repos h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #2d3748;
+            text-align: center;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        #repo-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+
+        #repo-table td {
+            padding: 0;
+        }
+
+        .repo-link {
+            display: block;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+            text-transform: capitalize;
+        }
+
+        .repo-link:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.6);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            header img {
+                width: 200px !important;
+            }
+            
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -124,50 +193,79 @@
             <p>Computer and Information science</p>
             <b>facebook : </b>
             <a href="https://www.facebook.com/profile.php?id=100005399355607" target="_blank">นุ ภานุวัฒน์</a><br>
-            <button type="button" class="btn"><a href="calculator/calculator.html">Click Me</a></button>
-            <button type="button" class="btn"><a href="todoapp/todoapp.html">To-Do App</a></button>
-            <button type="button" class="btn"><a href="pokedex/index.html">Pokedex</a></button>
-            <button type="button" class="btn"><a href="openweather/index.html">Weather App</a></button>
+            <div class="button-grid">
+                <button type="button" class="btn"><a href="calculator/calculator.html">Calculator</a></button>
+                <button type="button" class="btn"><a href="todoapp/todoapp.html">To-Do App</a></button>
+                <button type="button" class="btn"><a href="pokedex/index.html">Pokedex</a></button>
+                <button type="button" class="btn"><a href="openweather/index.html">Weather App</a></button>
+            </div>
         </div>
     </div>
 </header>
 
 <main>
-    <section class="github-repos">
-        <center><h2>Repositories from GitHub</h2></center>
-        <table id="repo-table">
-            <tbody id="repo-list"></tbody>
-        </table>
-    </section>
+    <div class="container">
+        <section class="github-repos">
+            <h2>Repositories from GitHub</h2>
+            <table id="repo-table">
+                <tbody id="repo-list"></tbody>
+            </table>
+        </section>
+    </div>
 </main>
     <script>
+        // GitHub Repositories
         const username = 'NuPanuwat47';
-            const reposCount = 6;
-            const apiUrl = `https://api.github.com/users/${username}/repos?sort=stars&per_page=${reposCount}`;
+        const reposCount = 6;
+        const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=${reposCount}`;
 
-            fetch(apiUrl)
-                .then((response) => response.json())
-                .then((data) => {
-                    const repoList = document.getElementById('repo-list');
-                    let row;
-                    data.forEach((repo, index) => {
-                        if (index % 2 === 0) {
-                            row = document.createElement('tr');
-                            repoList.appendChild(row);
-                        }
-                        const repoCell = document.createElement('td');
-                        const repoLink = document.createElement('a');
-                        repoLink.href = repo.html_url;
-                        repoLink.textContent = repo.name;
-                        repoLink.className = 'repo-link';
-                        repoCell.appendChild(repoLink);
-                        row.appendChild(repoCell);
-                    });
-                })
-                .catch((error) => {
-                    console.error('Error fecthing', error);
+        async function fetchGitHubRepos() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                if (data.length === 0) {
+                    document.getElementById('repo-list').innerHTML = '<tr><td colspan="2" style="text-align: center; color: #718096;">No repositories found</td></tr>';
+                    return;
+                }
+
+                const repoList = document.getElementById('repo-list');
+                repoList.innerHTML = '';
+                
+                let row;
+                data.forEach((repo, index) => {
+                    if (index % 2 === 0) {
+                        row = document.createElement('tr');
+                        repoList.appendChild(row);
+                    }
+                    
+                    const repoCell = document.createElement('td');
+                    const repoLink = document.createElement('a');
+                    repoLink.href = repo.html_url;
+                    repoLink.target = '_blank';
+                    repoLink.rel = 'noopener noreferrer';
+                    repoLink.textContent = repo.name.replace(/-/g, ' ').replace(/_/g, ' ');
+                    repoLink.className = 'repo-link';
+                    repoLink.title = repo.description || 'No description available';
+                    
+                    repoCell.appendChild(repoLink);
+                    row.appendChild(repoCell);
                 });
+                
+                // Add empty cell if odd number of repos
+                if (data.length % 2 !== 0) {
+                    const emptyCell = document.createElement('td');
+                    row.appendChild(emptyCell);
+                }
+                
+            } catch (error) {
+                console.error('Error fetching GitHub repositories:', error);
+                document.getElementById('repo-list').innerHTML = '<tr><td colspan="2" style="text-align: center; color: #e53e3e;">Error loading repositories</td></tr>';
+            }
+        }
+
+        // Load repositories when page loads
+        document.addEventListener('DOMContentLoaded', fetchGitHubRepos);
     </script>
-    <script src="index.js"/>
 </body>
 </html>
